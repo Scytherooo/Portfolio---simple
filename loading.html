@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            background-color: #1a1a1a;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Wrapper for animated containers */
+        .container-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Ensure the containers don't interfere with other elements */
+        }
+
+        /* Individual container styles */
+        .container {
+            margin: 30px;
+            position: absolute; /* Absolute positioning for random placement */
+            opacity: 0;
+            animation: slideIn 1s forwards, fadeIn 3s forwards;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Random sizes for each container (larger) */
+        .container:nth-child(1) { width: 300px; height: 300px; }
+        .container:nth-child(2) { width: 350px; height: 450px; }
+        .container:nth-child(3) { width: 400px; height: 300px; }
+        .container:nth-child(4) { width: 450px; height: 500px; }
+        .container:nth-child(5) { width: 500px; height: 450px; }
+        .container:nth-child(6) { width: 400px; height: 400px; }
+        .container:nth-child(7) { width: 350px; height: 350px; }
+        .container:nth-child(8) { width: 420px; height: 380px; }
+        .container:nth-child(9) { width: 450px; height: 380px; }
+        .container:nth-child(10) { width: 500px; height: 500px; }
+        .container:nth-child(11) { width: 480px; height: 420px; }
+
+        /* Image inside each container */
+        .container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Animation for sliding in */
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Animation for fading in */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Custom delay for each container */
+        .container:nth-child(1) {
+            animation-delay: 0.5s;
+            top: 10%;
+            left: 5%;
+        }
+
+        .container:nth-child(2) {
+            animation-delay: 1s;
+            top: 30%;
+            left: 20%;
+        }
+
+        .container:nth-child(3) {
+            animation-delay: 1.5s;
+            top: 50%;
+            left: 15%;
+        }
+
+        .container:nth-child(4) {
+            animation-delay: 2s;
+            top: 70%;
+            left: 30%;
+        }
+
+        .container:nth-child(5) {
+            animation-delay: 2.5s;
+            top: 10%;
+            left: 70%;
+        }
+
+        .container:nth-child(6) {
+            animation-delay: 3s;
+            top: 80%;
+            left: 50%;
+        }
+
+        /* New delays for additional containers */
+        .container:nth-child(7) {
+            animation-delay: 3.5s;
+            top: 40%;
+            left: 70%;
+        }
+
+        .container:nth-child(8) {
+            animation-delay: 4s;
+            top: 60%;
+            left: 10%;
+        }
+
+        .container:nth-child(9) {
+            animation-delay: 4.5s;
+            top: 20%;
+            left: 40%;
+        }
+
+        .container:nth-child(10) {
+            animation-delay: 5s;
+            top: 80%;
+            left: 20%;
+        }
+
+        .container:nth-child(11) {
+            animation-delay: 5.5s;
+            top: 15%;
+            left: 50%;
+        }
+
+        /* Loading container with text and spinner */
+        .loading-container {
+            text-align: center;
+            z-index: 10;
+            position: relative;
+        }
+
+        .loading-text {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Simple spinner animation */
+        .spinner {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid #ff3737;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Wrapper for multiple animated containers -->
+    <div class="container-wrapper">
+        <div class="container">
+            <img src="images/loading/1.jpg" alt="Image 1">
+        </div>
+        <div class="container">
+            <img src="images/loading/2.png" alt="Image 2">
+        </div>
+        <div class="container">
+            <img src="images/loading/3.jfif" alt="Image 3">
+        </div>
+        <div class="container">
+            <img src="images/loading/4.png" alt="Image 4">
+        </div>
+        <div class="container">
+            <img src="images/loading/5.jfif" alt="Image 5">
+        </div>
+        <div class="container">
+            <img src="images/loading/6.jfif" alt="Image 6">
+        </div>
+        <div class="container">
+            <img src="images/loading/7.jfif" alt="Image 7">
+        </div>
+        <div class="container">
+            <img src="images/loading/8.jfif" alt="Image 8">
+        </div>
+        <div class="container">
+            <img src="images/loading/9.jfif" alt="Image 9">
+        </div>
+        <div class="container">
+            <img src="images/loading/10.jfif" alt="Image 10">
+        </div>
+        <div class="container">
+            <img src="images/loading/11.jpg" alt="Image 11">
+        </div>
+    </div>
+
+    <!-- Loading text and spinner -->
+    <div class="loading-container">
+        <div class="loading-text">Please Wait, Loading...</div>
+        <div class="spinner"></div>
+    </div>
+
+    <script>
+        // Automatically redirect after 5 seconds
+        setTimeout(function() {
+            window.location.href = "index.html"; // Ensure the path to your portfolio is correct
+        }, 5000);
+    </script>
+
+</body>
+</html>
